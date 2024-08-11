@@ -1,4 +1,16 @@
-// script.js
+function initMap() {
+    var mapOptions = {
+        center: new google.maps.LatLng(37.6543021, 126.9352783), // 결혼식장 좌표
+        zoom: 15,
+    };
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(37.6543021, 126.9352783),
+        map: map,
+        title: "파노라마 베이커리 카페"
+    });
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     const weddingDate = new Date('2024-10-05T12:00:00');
@@ -17,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 title: '결혼식',
                 start: '2024-10-05',
                 end: '2024-10-05',
-                color: '#ff69b4', // 색상 지정
+                color: '#b2a9e8', // 색상 지정
                 textColor: '#ffffff'
             }
         ]
@@ -30,17 +42,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function updateCountdown(weddingDate) {
     const now = new Date();
-    const timeDifference = weddingDate - now;
+    const timeDifference = now - weddingDate; // 시간 차이 계산
 
     const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
     const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-    document.getElementById('countdown').innerHTML = `D-Day: ${days}일 ${hours}시간 ${minutes}분 ${seconds}초 남았습니다.`;
-
-    if (timeDifference < 0) {
-        clearInterval(this);
-        document.getElementById('countdown').innerHTML = "축하합니다! 오늘은 결혼식 날입니다!";
+    let message;
+    if (timeDifference >= 0) {
+        // 결혼식 이후의 경과 시간
+        message = `부부가 된 후, ${days}일 ${hours}시간 ${minutes}분 ${seconds}초 지났습니다.`;
+    } else {
+        // 결혼식 전까지 남은 시간
+        const absTimeDifference = Math.abs(timeDifference);
+        const absDays = Math.floor(absTimeDifference / (1000 * 60 * 60 * 24));
+        const absHours = Math.floor((absTimeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const absMinutes = Math.floor((absTimeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        const absSeconds = Math.floor((absTimeDifference % (1000 * 60)) / 1000);
+        message = `결혼식까지, ${absDays}일 ${absHours}시간 ${absMinutes}분 ${absSeconds}초 남았습니다.`;
     }
+
+    document.getElementById('countdown').innerHTML = message;
 }
