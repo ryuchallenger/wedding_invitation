@@ -38,10 +38,11 @@ h3 {
 }
 
 .header-image {
-    width: 80%;
+    width: 100%; /* 웹페이지의 전체 너비와 같게 설정 */
     max-height: 200px;
     object-fit: contain;
-    margin-bottom: 20px;
+    margin: 0 auto 20px; /* 가운데 정렬을 위한 auto 설정 및 하단 마진 */
+    display: block; /* 이미지가 블록 요소로 취급되도록 설정 */
 }
 
 .header h1 {
@@ -152,7 +153,41 @@ h3 {
 }
 
 
+
+
+
+
 /* 반응형 디자인 */
+/* 초대형 화면 (1200px 이상) */
+@media (min-width: 1200px) {
+    .header h1 {
+        font-size: 3em;
+    }
+
+    .container {
+        padding: 30px;
+    }
+
+    .shared-width-container {
+        width: 70%;
+    }
+
+    .calendar-image-container {
+        width: 40%;
+    }
+
+    .map-container {
+        height: 500px;
+    }
+
+    .content p {
+        font-size: 1.3em;
+    }
+
+    h3 {
+        font-size: 1.8em;
+    }
+}
 @media (max-width: 768px) {
     .header h1 {
         font-size: 2em;
@@ -183,6 +218,33 @@ h3 {
     }
 }
 
+/* 작은 태블릿 및 큰 스마트폰 (600px 이하) */
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .shared-width-container {
+        width: 95%;
+    }
+
+    .calendar-image-container {
+        width: 85%;
+    }
+
+    .map-container {
+        height: 270px;
+    }
+
+    .content p {
+        font-size: 0.95em;
+    }
+
+    h3 {
+        font-size: 1.1em;
+    }
+}
+
 @media (max-width: 480px) {
     .header h1 {
         font-size: 1.5em;
@@ -206,5 +268,32 @@ h3 {
 
     h3 {
         font-size: 1em;
+    }
+}
+
+/* 초소형 스마트폰 (360px 이하) */
+@media (max-width: 360px) {
+    .header h1 {
+        font-size: 1.3em;
+    }
+
+    .shared-width-container {
+        width: 100%;
+    }
+
+    .calendar-image-container {
+        width: 100%;
+    }
+
+    .map-container {
+        height: 220px;
+    }
+
+    .content p {
+        font-size: 0.85em;
+    }
+
+    h3 {
+        font-size: 0.9em;
     }
 }
