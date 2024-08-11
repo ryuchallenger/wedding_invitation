@@ -72,11 +72,11 @@
                     </tbody>
                 </table>
             </div>
+            
 
             <div id="map" class="map-container shared-width-container"></div> <!-- 지도 표시 영역 -->
             
-            <h3 class="location-title">장소 확인하기</h3> <!-- 클래스 추가 -->
-            <div class="location-container">
+            <div class="icon-container">
                 <a href="https://map.naver.com/p/entry/place/1984552936?c=15.00,0,0,0,dh" target="_blank">
                     <img src="naver_map.webp" alt="Naver Map Icon" class="location-icon">
                 </a>
@@ -85,11 +85,7 @@
                 </a>
                 <a href="https://www.tmap.co.kr/tmapview?endX=126.9352783&endY=37.6543021" target="_blank">
                     <img src="Tmap.svg" alt="TMap Icon" class="location-icon">
-                </a>                
-            </div>
-
-            <h3 class="weather-title">결혼식장 날씨 확인하기</h3> <!-- 클래스 추가 -->
-            <div class="weather-container">
+                </a>   
                 <a href="https://weather.naver.com/today/02281109" target="_blank">
                     <img src="weather_icon_sunny.png" alt="Weather Icon" class="weather-icon">
                 </a>
@@ -99,10 +95,19 @@
             <div class="donation-info">
                 <h3>마음 전하실 곳</h3>
                 <p id="groom-account" class="account-clickable">신랑측 계좌번호</p>
-                <p id="groom-account-details" class="account-details"></p>
+                <div id="groom-account-details" class="account-details">
+                    <span>우리 1002-513-705066 류경선</span>
+                    <button class="copy-button" data-account="우리 1002-513-705066 류경선">복사하기</button>
+                </div>
+                
                 <p id="bride-account" class="account-clickable">신부측 계좌번호</p>
-                <p id="bride-account-details" class="account-details"></p>
+                <div id="bride-account-details" class="account-details">
+                    <span>하나 278-910047-07105 김미연</span>
+                    <button class="copy-button" data-account="하나 278-910047-07105 김미연">복사하기</button>
+                </div>
             </div>
+
+
 
             <!-- 화환 사양 -->
             <div class="donation-info">

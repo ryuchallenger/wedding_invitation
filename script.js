@@ -1,13 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM fully loaded and parsed");
-    
     // TMap 지도 초기화
     var map = new Tmapv2.Map("map", {
         center: new Tmapv2.LatLng(37.6543021, 126.9352783), // 결혼식장 좌표
         zoom: 15
     });
-
-    console.log("TMap initialized");
 
     // 마커 추가
     var marker = new Tmapv2.Marker({
@@ -16,8 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
         title: "파노라마 베이커리 카페"
     });
 
-    console.log("Marker added");
-
     // 결혼식 날짜 타이머
     const weddingDate = new Date('2024-10-05T12:00:00');
     updateCountdown(weddingDate);
@@ -25,25 +19,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 신랑측 계좌번호 클릭 시
     document.getElementById('groom-account').addEventListener('click', function() {
-        console.log("Groom account clicked");
         const details = document.getElementById('groom-account-details');
-        details.textContent = '우리 1002-513-705066 류경선';
-        details.style.display = 'block';
-        copyToClipboard('우리 1002-513-705066 류경선');
+        details.style.display = details.style.display === 'none' ? 'block' : 'none';
     });
 
     // 신부측 계좌번호 클릭 시
     document.getElementById('bride-account').addEventListener('click', function() {
-        console.log("Bride account clicked");
         const details = document.getElementById('bride-account-details');
-        details.textContent = '하나 278-910047-07105 김미연';
-        details.style.display = 'block';
-        copyToClipboard('하나 278-910047-07105 김미연');
+        details.style.display = details.style.display === 'none' ? 'block' : 'none';
+    });
+
+    // "복사하기" 버튼 클릭 시 계좌번호 복사 기능
+    document.querySelectorAll('.copy-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const accountText = button.getAttribute('data-account');
+            copyToClipboard(accountText);
+        });
     });
 });
 
 function updateCountdown(weddingDate) {
-    console.log("Updating countdown");
     const now = new Date();
     const timeDifference = weddingDate - now; // 시간 차이 계산
 
@@ -62,12 +57,11 @@ function updateCountdown(weddingDate) {
     }
 
     document.getElementById('countdown').innerHTML = message;
-    console.log(message);
 }
 
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
-        console.log('계좌번호가 클립보드에 복사되었습니다!');
+        alert('계좌번호가 클립보드에 복사되었습니다!');
     }).catch(err => {
         console.error('클립보드 복사 실패: ', err);
     });
