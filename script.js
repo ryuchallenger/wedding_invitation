@@ -1,48 +1,51 @@
-function initMap() {
-    var mapOptions = {
-        center: new google.maps.LatLng(37.6543021, 126.9352783), // 결혼식장 좌표
-        zoom: 15,
-    };
-    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM fully loaded and parsed");
+    
+    // TMap 지도 초기화
+    var map = new Tmapv2.Map("map", {
+        center: new Tmapv2.LatLng(37.6543021, 126.9352783), // 결혼식장 좌표
+        zoom: 15
+    });
 
-    var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(37.6543021, 126.9352783),
+    console.log("TMap initialized");
+
+    // 마커 추가
+    var marker = new Tmapv2.Marker({
+        position: new Tmapv2.LatLng(37.6543021, 126.9352783),
         map: map,
         title: "파노라마 베이커리 카페"
     });
-}
 
-document.addEventListener('DOMContentLoaded', function() {
+    console.log("Marker added");
+
+    // 결혼식 날짜 타이머
     const weddingDate = new Date('2024-10-05T12:00:00');
-
-    // D-Day 계산 및 표시
     updateCountdown(weddingDate);
-
-    // FullCalendar 초기화 및 이벤트 추가
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        initialDate: '2024-10-01',
-        locale: 'ko',
-        events: [
-            {
-                title: '결혼식',
-                start: '2024-10-05',
-                end: '2024-10-05',
-                color: '#b2a9e8', // 색상 지정
-                textColor: '#ffffff'
-            }
-        ]
-    });
-    calendar.render();
-
-    // D-Day 타이머 업데이트
     setInterval(() => updateCountdown(weddingDate), 1000);
+
+    // 신랑측 계좌번호 클릭 시
+    document.getElementById('groom-account').addEventListener('click', function() {
+        console.log("Groom account clicked");
+        const details = document.getElementById('groom-account-details');
+        details.textContent = '우리 1002-513-705066 류경선';
+        details.style.display = 'block';
+        copyToClipboard('우리 1002-513-705066 류경선');
+    });
+
+    // 신부측 계좌번호 클릭 시
+    document.getElementById('bride-account').addEventListener('click', function() {
+        console.log("Bride account clicked");
+        const details = document.getElementById('bride-account-details');
+        details.textContent = '하나 278-910047-07105 김미연';
+        details.style.display = 'block';
+        copyToClipboard('하나 278-910047-07105 김미연');
+    });
 });
 
 function updateCountdown(weddingDate) {
+    console.log("Updating countdown");
     const now = new Date();
-    const timeDifference = now - weddingDate; // 시간 차이 계산
+    const timeDifference = weddingDate - now; // 시간 차이 계산
 
     const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
     const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -51,17 +54,21 @@ function updateCountdown(weddingDate) {
 
     let message;
     if (timeDifference >= 0) {
-        // 결혼식 이후의 경과 시간
-        message = `부부가 된 후, ${days}일 ${hours}시간 ${minutes}분 ${seconds}초 지났습니다.`;
-    } else {
         // 결혼식 전까지 남은 시간
-        const absTimeDifference = Math.abs(timeDifference);
-        const absDays = Math.floor(absTimeDifference / (1000 * 60 * 60 * 24));
-        const absHours = Math.floor((absTimeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const absMinutes = Math.floor((absTimeDifference % (1000 * 60 * 60)) / (1000 * 60));
-        const absSeconds = Math.floor((absTimeDifference % (1000 * 60)) / 1000);
-        message = `결혼식까지, ${absDays}일 ${absHours}시간 ${absMinutes}분 ${absSeconds}초 남았습니다.`;
+        message = `결혼식까지, ${days}일 ${hours}시간 ${minutes}분 ${seconds}초 남았습니다.`;
+    } else {
+        // 결혼식 이후의 경과 시간
+        message = `부부가 된 지, ${days}일 ${hours}시간 ${minutes}분 ${seconds}초 지났습니다.`;
     }
 
     document.getElementById('countdown').innerHTML = message;
+    console.log(message);
+}
+
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        console.log('계좌번호가 클립보드에 복사되었습니다!');
+    }).catch(err => {
+        console.error('클립보드 복사 실패: ', err);
+    });
 }
