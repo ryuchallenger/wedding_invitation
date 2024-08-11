@@ -1,5 +1,4 @@
-/* styles.css */
-
+/* 기본 스타일 */
 body {
     font-family: 'Nanum Myeongjo', serif;
     text-align: center;
@@ -97,6 +96,7 @@ body {
     max-width: 900px;
     margin: 40px auto; /* 가로 가운데 정렬을 위한 margin 설정 */
 }
+
 .location-container, .weather-container {
     display: flex;
     align-items: center;
@@ -111,6 +111,7 @@ body {
     height: 50px;
     vertical-align: middle;
 }
+
 .transport-table-container {
     display: flex;
     justify-content: center;
@@ -134,4 +135,61 @@ body {
 
 .transport-table th {
     background-color: white;
+}
+
+/* 반응형 디자인 - 화면 너비 768px 이하 */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .content p, .content h2, .content h3, .greeting-title, .greeting-message {
+        font-size: 1.1em;
+    }
+
+    .map-container {
+        height: 350px;
+    }
+
+    #countdown {
+        font-size: 1.2em;
+    }
+
+    .location-icon, .weather-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .transport-table {
+        max-width: 100%;
+        font-size: 0.9em;
+    }
+}
+
+/* 반응형 디자인 - 화면 너비 480px 이하 */
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .content p, .content h2, .content h3, .greeting-title, .greeting-message {
+        font-size: 1em;
+    }
+
+    .map-container {
+        height: 300px;
+    }
+
+    #countdown {
+        font-size: 1em;
+    }
+
+    .location-icon, .weather-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .transport-table {
+        font-size: 0.8em;
+    }
 }
