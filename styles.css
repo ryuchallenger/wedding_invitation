@@ -20,7 +20,7 @@ h3 {
 .greeting-title,
 .date-title,
 .location-title,
-.weather-title {
+.weather-title{
     font-size: 1.5em;
     margin: 50px 0 30px 0;
 }
@@ -65,7 +65,7 @@ h3 {
 
 /* 지도와 테이블의 너비를 동일하게 설정 */
 .shared-width-container {
-    width: 60%; /* 동일한 너비 설정 */
+    width: 100%; /* 동일한 너비 설정 */
     margin: 20px auto;
     border-radius: 10px;
     overflow: hidden;
@@ -77,7 +77,7 @@ h3 {
 }
 
 .calendar-image-container {
-    width: 30%;
+    width: 60%;
     margin: 40px auto;
     text-align: center;
 }
@@ -108,7 +108,7 @@ h3 {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
     text-align: center;
 }
 
