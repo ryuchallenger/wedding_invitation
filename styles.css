@@ -103,7 +103,7 @@ h3 {
 }
 
 #countdown {
-    font-size: 1.5em;
+    font-size: 1.0em;
     margin: 20px 0;
     color: #b2a9e8;
 }
@@ -113,7 +113,7 @@ h3 {
     display: flex;
     justify-content: center; /* 아이콘을 중앙에 배치 */
     flex-wrap: wrap; /* 필요에 따라 줄 바꿈 허용 */
-    gap: 20px; /* 아이콘 간의 간격 설정 */
+    gap: 10px; /* 아이콘 간의 간격 설정 */
     margin-top: 10px;
 }
 
@@ -132,14 +132,16 @@ h3 {
 }
 
 .location-icon, .weather-icon, .heart-icon {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border: 2px solid black; /* 테두리 */
     border-radius: 50%; /* 원형 테두리 */
     padding: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
 }
 .heart-icon {
+    width: 40px !important;
+    height: 40px !important;
     margin-bottom: 5px; /* 아이콘과 텍스트 사이의 간격 조정 */
 }
 
