@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마음 전하실 곳</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content nanum-myeongjo-regular">
+            <h3>마음 전하실 곳</h3><br><br>
+
+            <div class="account-info">
+                <p>신랑측 계좌번호</p>
+                <p>우리 1002-513-705066 류경선<button class="copy-button" onclick="copyToClipboard('우리 1002-513-705066 류경선')">복사하기</button></p>
+                <p>신한 오현숙<button class="copy-button" onclick="copyToClipboard('오현숙')">복사하기</button></p>
+            </div>
+            <br><br>
+            <div class="account-info">
+                <p>신부측 계좌번호</p>
+                <p>하나 278-910047-07105 김미연<button class="copy-button" onclick="copyToClipboard('하나 278-910047-07105 김미연')">복사하기</button></p>
+                <p>김문상<button class="copy-button" onclick="copyToClipboard('김문상')">복사하기</button></p>
+                <p>김양숙<button class="copy-button" onclick="copyToClipboard('김양숙')">복사하기</button></p>
+            </div>
+        </div>
+
+        <!-- index.html로 돌아가는 버튼 -->
+        <div class="return-button-container">
+            <button class="return-button" onclick="window.location.href='index.html'">청첩장으로 돌아가기</button>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('계좌번호가 클립보드에 복사되었습니다!');
+            }).catch(err => {
+                console.error('클립보드 복사 실패: ', err);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -17,25 +17,14 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCountdown(weddingDate);
     setInterval(() => updateCountdown(weddingDate), 1000);
 
-    // 신랑측 계좌번호 클릭 시
-    document.getElementById('groom-account').addEventListener('click', function() {
-        const details = document.getElementById('groom-account-details');
-        details.style.display = details.style.display === 'none' ? 'block' : 'none';
+    // Heart icon 클릭 시 "마음 전하실 곳" 페이지 열기
+    const heartIcon = document.querySelector('.heart-icon');
+    heartIcon.addEventListener('click', function() {
+        window.location.href = 'donation.html'; // 새로운 HTML 페이지로 이동
     });
 
-    // 신부측 계좌번호 클릭 시
-    document.getElementById('bride-account').addEventListener('click', function() {
-        const details = document.getElementById('bride-account-details');
-        details.style.display = details.style.display === 'none' ? 'block' : 'none';
-    });
-
-    // "복사하기" 버튼 클릭 시 계좌번호 복사 기능
-    document.querySelectorAll('.copy-button').forEach(button => {
-        button.addEventListener('click', function() {
-            const accountText = button.getAttribute('data-account');
-            copyToClipboard(accountText);
-        });
-    });
+    // 꽃잎 애니메이션 생성
+    generatePetals(30); // 생성할 꽃잎 수
 });
 
 function updateCountdown(weddingDate) {
@@ -59,10 +48,15 @@ function updateCountdown(weddingDate) {
     document.getElementById('countdown').innerHTML = message;
 }
 
-function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(() => {
-        alert('계좌번호가 클립보드에 복사되었습니다!');
-    }).catch(err => {
-        console.error('클립보드 복사 실패: ', err);
-    });
+function generatePetals(num) {
+    const petalContainer = document.querySelector('.petal-container');
+
+    for (let i = 0; i < num; i++) {
+        let petal = document.createElement('div');
+        petal.classList.add('petal');
+        petal.style.left = `${Math.random() * 100}vw`;
+        petal.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        petal.style.animationDelay = `${Math.random() * 5}s`;
+        petalContainer.appendChild(petal);
+    }
 }

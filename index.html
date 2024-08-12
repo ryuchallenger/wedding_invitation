@@ -11,6 +11,7 @@
     <!-- TMap API 추가 -->
     <script src="https://apis.openapi.sk.com/tmap/jsv2?version=1&appKey=aEV2SIPyrd2vs7j0OQmxS1bmE1jPZpB67uDl9hqD"></script>
 </head>
+
 <body>
     <div class="header">
         <img src="test_2.png" alt="Wedding Header Image" class="header-image">
@@ -27,12 +28,13 @@
 
             <h3 class="date-title">일시</h3>
             <p>2024년 10월 5일 토요일 낮 12시</p>
-            <div id="countdown"></div> <!-- 타이머가 표시될 영역 -->
 
             <!-- Calendar Image 추가 -->
             <div class="calendar-image-container">
                 <img src="calendar.png" alt="Calendar Image" class="calendar-image">
             </div>
+
+            <div id="countdown"></div> <!-- 타이머가 표시될 영역 -->
 
             <h3 class="location-title">장소</h3>
             <p>경기 고양시 덕양구 백운길 48 파노라마 베이커리 카페</p>
@@ -89,32 +91,21 @@
                 <a href="https://weather.naver.com/today/02281109" target="_blank">
                     <img src="weather_icon_sunny.png" alt="Weather Icon" class="weather-icon">
                 </a>
-            </div>
-            
-            <!-- 마음 전하실 곳 -->
-            <div class="donation-info">
-                <h3>마음 전하실 곳</h3>
-                <p id="groom-account" class="account-clickable">신랑측 계좌번호</p>
-                <div id="groom-account-details" class="account-details">
-                    <span>우리 1002-513-705066 류경선</span>
-                    <button class="copy-button" data-account="우리 1002-513-705066 류경선">복사하기</button>
-                </div>
-                
-                <p id="bride-account" class="account-clickable">신부측 계좌번호</p>
-                <div id="bride-account-details" class="account-details">
-                    <span>하나 278-910047-07105 김미연</span>
-                    <button class="copy-button" data-account="하나 278-910047-07105 김미연">복사하기</button>
-                </div>
+                <img src="heart.png" alt="Heart Icon" class="heart-icon">
             </div>
 
 
 
             <!-- 화환 사양 -->
             <div class="donation-info">
-                <h3>화환은 정중히 사양합니다.</h3>
+                <h4>화환은 정중히 사양합니다.</h4>
             </div>
         </div>
     </div>
+
+        <!-- 꽃잎 떨어지는 애니메이션을 위한 컨테이너 -->
+        <div class="petal-container"></div>
+
     <div class="footer nanum-myeongjo-regular">
         <p>RSVP by contacting us at ryuchallenger@gmail.com</p>
         <p>신랑: 010-7113-5225, 신부: 010-6353-9157</p>

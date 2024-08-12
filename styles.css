@@ -168,47 +168,129 @@ h3 {
     text-align: center; /* 텍스트 가운데 정렬 */
 }
 
+
+
+/* 마음 전하실 곳 스타일 */
+
+.heart-icon-container {
+    margin: 20px 0;
+}
+
+.heart-icon {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+
 .donation-info {
     margin-top: 30px;
     text-align: center;
+    padding: 20px;
+    background-color: #f9f6fb;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
-/* 계좌번호 상세 정보 숨기기 */
+
+.donation-info h3 {
+    font-size: 1.8em;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.account-clickable {
+    cursor: pointer;
+    color: #6a5acd;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.account-clickable:hover {
+    color: #483d8b;
+}
+
 .account-details {
     display: none;
     margin-top: 10px;
     font-size: 1.2em;
+    color: #333;
 }
 
-/* 복사하기 버튼 스타일 */
 .copy-button {
     margin-left: 10px;
-    padding: 5px 10px;
+    padding: 5px 15px;
     font-size: 0.9em;
     color: white;
-    background-color: #b2a9e8;
+    background-color: #6a5acd;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .copy-button:hover {
-    background-color: #8c7cc5;
+    background-color: #483d8b;
+    transform: scale(1.05);
 }
 
 .copy-button:active {
-    background-color: #5c4a8d;
+    background-color: #312c56;
+    transform: scale(0.95);
 }
 
-/* 클릭 가능한 계좌번호 스타일 */
-.account-clickable {
-    cursor: pointer;
-    color: #b2a9e8;
-    text-decoration: underline;
-    margin-bottom: 10px;
+/* 효과 */
+/* 꽃잎 애니메이션 스타일 */
+.petal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-image: url('petal.png'); /* 꽃잎 이미지 경로 */
+    background-size: cover;
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
 }
 
 
+/* 글씨 fade in */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.container {
+    animation: fadeIn 2s ease-in-out;
+}
 
 
 
