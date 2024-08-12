@@ -6,23 +6,60 @@ body {
     background-color: #f4f4f9;
 }
 
-.nanum-myeongjo-regular {
-    font-family: "Nanum Myeongjo", serif;
-    font-weight: 400;
-    font-style: normal;
+.name-container {
+    display: flex;
+    align-items: center; /* 왼쪽과 오른쪽 요소를 세로로 가운데 정렬 */
+    justify-content: center; /* 컨테이너 내에서 모든 요소를 가로로 가운데 정렬 */
+    margin-top: 10px; /* 위아래 간격 조절 */
 }
 
-h3 {
-    font-size: 1.5em;
-    margin: 10px 0;
+.name-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* 텍스트를 가운데 정렬 */
+    margin-right: 70px; /* 오른쪽 텍스트와의 간격 */
 }
 
+.name-middle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* 텍스트를 가운데 정렬 */
+    margin-right: 70px; /* 오른쪽 텍스트와의 간격 */
+}
+.name-middle p {
+    margin-bottom: 65px; /* 문단 사이의 간격 설정 */
+}
+
+.name-middle p:last-child {
+    margin-bottom: 20px; /* 마지막 문단의 마진을 제거 */
+}
+
+
+.name-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* 텍스트를 가운데 정렬 */
+    margin-right: 0px; /* 오른쪽 텍스트와의 간격 */
+}
+.name-right p {
+    margin-bottom: 65px; /* 문단 사이의 간격 설정 */
+}
+
+.name-right p:last-child {
+    margin-bottom: 20px; /* 마지막 문단의 마진을 제거 */
+}
+
+/* 소제목 스타일 */
 .greeting-title,
 .date-title,
 .location-title,
 .weather-title{
     font-size: 1.5em;
     margin: 50px 0 30px 0;
+}
+
+.highlight-text {
+    font-weight: bold;
 }
 
 .small-text {
@@ -38,14 +75,25 @@ h3 {
 }
 
 .header-image {
-    width: 100%; /* 웹페이지의 전체 너비와 같게 설정 */
-    max-height: 200px;
+    width: 100vw; /* 뷰포트 너비의 50%로 설정 */
+    height: auto; /* 높이를 비율에 맞게 자동으로 설정 */
     object-fit: contain;
     margin: 0 auto 20px; /* 가운데 정렬을 위한 auto 설정 및 하단 마진 */
     display: block; /* 이미지가 블록 요소로 취급되도록 설정 */
 }
 
+.us-image {
+    width: 30vw; /* 뷰포트 너비의 50%로 설정 */
+    height: auto; /* 높이를 비율에 맞게 자동으로 설정 */
+    object-fit: contain;
+    display: block; /* 이미지가 블록 요소로 취급되도록 설정 */
+    margin: 0 auto 20px; /* 가운데 정렬을 위한 auto 설정 및 하단 마진 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 추가 */
+    border-radius: 8px; /* 모서리를 둥글게 설정 */
+}
+
 .header h1 {
+    font-weight: bold;
     font-size: 2.5em;
     margin: 0;
     padding-top: 10px;
@@ -77,21 +125,86 @@ h3 {
     height: 450px;
 }
 
+/* 달력 구현 */
 .calendar-image-container {
-    width: 40%;
-    margin: 40px auto;
+    width: 60%;
+    margin: 20px auto; /* 상하 간격을 줄이기 위해 margin을 조정 */
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* 컨테이너 높이를 콘텐츠에 맞추기 위해 auto로 설정 */
 }
 
-.calendar-image {
-    width: 100%;
+.calendar {
+    width: 40vw; /* 뷰포트 너비의 50%로 설정 */
+    height: auto; /* 높이를 비율에 맞게 자동으로 설정 */
+    border-radius: 10px;
+    overflow: hidden;
 }
 
+.month {
+    background-color: transparent;
+    color: black;
+    text-align: center;
+    padding: 10px;
+}
+
+.weekdays {
+    display: flex;
+    background-color: transparent;
+    padding: 10px 0;
+}
+
+.weekdays div {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+    color: #555;
+}
+
+.days {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-color: transparent;
+}
+
+.day,
+.empty {
+    width: 14.28%; /* 100% / 7 days */
+    height: auto; /* 높이를 비율에 맞게 자동으로 설정 */
+    aspect-ratio: 1 / 1; /* 정사각형 모양을 유지하도록 설정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px 0;
+    font-size: 1.2vw; /* 뷰포트 너비에 따라 글자 크기 조정 */
+    color: #333;
+}
+
+.empty {
+    background-color: transparent;
+}
+
+.day.special {
+    background-color: #b2a9e8;
+    color: white;
+    border-radius: 20%;
+    font-weight: bold;
+}
+
+.day.holiday {
+    color: #b2a9e8;
+}
+
+/* footer */
 .footer {
     background-image: url('footer.png'); /* 배경 이미지 경로 설정 */
     background-size: cover; /* 배경 이미지가 footer 영역을 덮도록 설정 */
     background-position: center; /* 배경 이미지의 위치를 가운데로 설정 */
     color: black; /* 텍스트 색상 */
+    font-weight: bold;
     padding: 20px;
     margin-top: 40px;
     text-align: center; /* 텍스트 가운데 정렬 */
@@ -113,7 +226,7 @@ h3 {
     display: flex;
     justify-content: center; /* 아이콘을 중앙에 배치 */
     flex-wrap: wrap; /* 필요에 따라 줄 바꿈 허용 */
-    gap: 10px; /* 아이콘 간의 간격 설정 */
+    gap: 3px; /* 아이콘 간의 간격 설정 */
     margin-top: 10px;
 }
 
@@ -132,17 +245,17 @@ h3 {
 }
 
 .location-icon, .weather-icon, .heart-icon {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border: 2px solid black; /* 테두리 */
     border-radius: 50%; /* 원형 테두리 */
     padding: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
 }
 .heart-icon {
-    width: 40px !important;
-    height: 40px !important;
-    margin-bottom: 5px; /* 아이콘과 텍스트 사이의 간격 조정 */
+    width: 30px !important;
+    height: 30px !important;
+    margin-bottom: 4px !important;; /* 아이콘과 텍스트 사이의 간격 조정 */
 }
 
 /* 테이블 스타일링 */
