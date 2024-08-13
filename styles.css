@@ -90,13 +90,13 @@ body {
 }
 
 .us-image {
-    width: 80vw; /* 뷰포트 너비의 50%로 설정 */
+    width: 90vw; /* 뷰포트 너비의 90%로 설정 */
     height: auto; /* 높이를 비율에 맞게 자동으로 설정 */
     object-fit: contain;
     display: block; /* 이미지가 블록 요소로 취급되도록 설정 */
     margin: 0 auto 50px; /* 가운데 정렬을 위한 auto 설정 및 하단 마진 */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 추가 */
-    border-radius: 50%; /* 모서리를 둥글게 설정 */
+    border-radius: 5px; /* 모서리를 둥글게 설정 */
 }
 
 .header h1 {
