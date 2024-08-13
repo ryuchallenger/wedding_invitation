@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const weddingDate = new Date('2024-10-05T12:00:00');
     updateCountdown(weddingDate);
     setInterval(() => updateCountdown(weddingDate), 1000);
-
+    
     // Heart icon 클릭 시 "마음 전하실 곳" 페이지 열기
     const heartIcon = document.querySelector('.heart-icon');
     if (heartIcon) {
@@ -13,6 +13,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     } else {
         console.error('Heart icon not found');
+    }
+    
+    // Invitation icon 클릭 시 "종이청첩장" 페이지 열기
+    const InvitationIcon = document.querySelector('.invitation-icon');
+    if (InvitationIcon) {
+        InvitationIcon.addEventListener('click', function() {
+            window.location.href = 'invitation.html';
+        });
+    } else {
+        console.error('Invitation icon not found');
     }
 });
 
