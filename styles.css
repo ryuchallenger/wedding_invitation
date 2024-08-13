@@ -250,7 +250,7 @@ body {
 /* 아이콘 컨테이너 */
 .icon-container {
     display: flex;
-    justify-content: center; /* 아이콘을 중앙에 배치 */
+    justify-content: space-between; /* 아이콘을 중앙에 배치 */
     flex-wrap: wrap; /* 필요에 따라 줄 바꿈 허용 */
     gap: 3px; /* 아이콘 간의 간격 설정 */
     margin-top: 10px;
