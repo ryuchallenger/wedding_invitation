@@ -1,16 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // TMap 지도 초기화
-    var map = new Tmapv2.Map("map", {
-        center: new Tmapv2.LatLng(37.6543021, 126.9352783), // 결혼식장 좌표
-        zoom: 15
-    });
-
-    // 마커 추가
-    var marker = new Tmapv2.Marker({
-        position: new Tmapv2.LatLng(37.6543021, 126.9352783),
-        map: map,
-        title: "파노라마 베이커리 카페"
-    });
 
     // 결혼식 날짜 타이머
     const weddingDate = new Date('2024-10-05T12:00:00');
@@ -19,13 +7,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Heart icon 클릭 시 "마음 전하실 곳" 페이지 열기
     const heartIcon = document.querySelector('.heart-icon');
-    heartIcon.addEventListener('click', function() {
-        window.location.href = 'donation.html'; // 새로운 HTML 페이지로 이동
-    });
+    if (heartIcon) {
+        heartIcon.addEventListener('click', function() {
+            window.location.href = 'donation.html';
+        });
+    } else {
+        console.error('Heart icon not found');
+    }
+});
 
     // 꽃잎 애니메이션 생성
-    generatePetals(30); // 생성할 꽃잎 수
-});
+    generatePetals(20); // 생성할 꽃잎 수
+
 
 function updateCountdown(weddingDate) {
     const now = new Date();
@@ -55,7 +48,7 @@ function generatePetals(num) {
         let petal = document.createElement('div');
         petal.classList.add('petal');
         petal.style.left = `${Math.random() * 100}vw`;
-        petal.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        petal.style.animationDuration = `${Math.random() * 10 + 5}s`;
         petal.style.animationDelay = `${Math.random() * 5}s`;
         petalContainer.appendChild(petal);
     }

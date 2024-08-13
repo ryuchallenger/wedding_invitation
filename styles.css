@@ -16,14 +16,14 @@ body {
 .name-left {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* 텍스트를 가운데 정렬 */
+    align-items: flex-end; /* 텍스트를 오른쪽 정렬 */
     margin-right: 70px; /* 오른쪽 텍스트와의 간격 */
 }
 
 .name-middle {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* 텍스트를 가운데 정렬 */
+    align-items: flex-end; /* 텍스트를 오른쪽 정렬 */
     margin-right: 70px; /* 오른쪽 텍스트와의 간격 */
 }
 .name-middle p {
@@ -38,7 +38,7 @@ body {
 .name-right {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* 텍스트를 가운데 정렬 */
+    align-items: flex-end; /* 텍스트를 오른쪽 정렬 */
     margin-right: 0px; /* 오른쪽 텍스트와의 간격 */
 }
 .name-right p {
@@ -56,6 +56,14 @@ body {
 .weather-title{
     font-size: 1.5em;
     margin: 50px 0 30px 0;
+}
+
+/* 유용한 기능*/
+
+.centering {
+    display: flex;
+    justify-content: center !important; /* 컨테이너 내에서 모든 요소를 가로로 가운데 정렬 */
+    margin-top: 10px; /* 위아래 간격 조절 */
 }
 
 .highlight-text {
@@ -86,9 +94,9 @@ body {
     height: auto; /* 높이를 비율에 맞게 자동으로 설정 */
     object-fit: contain;
     display: block; /* 이미지가 블록 요소로 취급되도록 설정 */
-    margin: 0 auto 20px; /* 가운데 정렬을 위한 auto 설정 및 하단 마진 */
+    margin: 0 auto 50px; /* 가운데 정렬을 위한 auto 설정 및 하단 마진 */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 추가 */
-    border-radius: 8px; /* 모서리를 둥글게 설정 */
+    border-radius: 50%; /* 모서리를 둥글게 설정 */
 }
 
 .header h1 {
@@ -121,10 +129,10 @@ body {
 }
 
 .map-container {
-    height: 450px;
+    height: auto;
 }
 
-/* 달력 구현 */
+/* 달력 구현 (폐기) */
 .calendar-image-container {
     width: 60%;
     margin: 20px auto; /* 상하 간격을 줄이기 위해 margin을 조정 */
@@ -205,7 +213,6 @@ body {
     background-position: center; /* 배경 이미지의 위치를 가운데로 설정 */
     color: black; /* 텍스트 색상 */
     font-size: 0.8em;
-    font-weight: bold;
     padding: 20px;
     margin-top: 40px;
     text-align: center; /* 텍스트 가운데 정렬 */
@@ -268,7 +275,10 @@ body {
 .heart-icon {
     width: 30px !important;
     height: 30px !important;
+    cursor: pointer; /* 클릭 가능하게 포인터 커서 추가 */
     margin-bottom: 4px !important;; /* 아이콘과 텍스트 사이의 간격 조정 */
+    z-index: 10; /* 다른 요소들보다 위에 위치하도록 z-index 설정 */
+    position: relative; /* 위치를 고정 */
 }
 
 /* 테이블 스타일링 */
@@ -321,14 +331,18 @@ body {
 
 /* 마음 전하실 곳 스타일 */
 
-.heart-icon-container {
-    margin: 20px 0;
-}
 
-.heart-icon {
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
+.donation-container {
+    display: flex;
+    align-items: center; /* 왼쪽과 오른쪽 요소를 세로로 가운데 정렬 */
+    justify-content: center; /* 컨테이너 내에서 모든 요소를 가로로 가운데 정렬 */
+    margin-top: 10px; /* 위아래 간격 조절 */
+
+    font-family: 'Nanum Myeongjo', serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
 }
 
 
@@ -346,43 +360,34 @@ body {
     margin-bottom: 20px;
 }
 
-.account-clickable {
-    cursor: pointer;
-    color: #6a5acd;
-    font-size: 1.3em;
-    margin-bottom: 10px;
-    transition: color 0.3s ease;
+.account-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* 텍스트를 오른쪽 정렬 */
+    margin: 0 auto; /* 웹페이지 중앙에 배치 */
+    width: fit-content; /* 콘텐츠의 너비에 맞게 크기를 조절 */
 }
 
-.account-clickable:hover {
-    color: #483d8b;
-}
 
-.account-details {
-    display: none;
-    margin-top: 10px;
-    font-size: 1.2em;
-    color: #333;
-}
-
-.copy-button {
+.copy-button, .return-button {
     margin-left: 10px;
     padding: 5px 15px;
     font-size: 0.9em;
     color: white;
-    background-color: #6a5acd;
+    background-color: #b2a9e8;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.copy-button:hover {
+
+.copy-button:hover, .return-button:hover {
     background-color: #483d8b;
     transform: scale(1.05);
 }
 
-.copy-button:active {
+.copy-button:active, .return-button:active {
     background-color: #312c56;
     transform: scale(0.95);
 }
@@ -402,12 +407,13 @@ body {
 
 .petal {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     background-image: url('petal.png'); /* 꽃잎 이미지 경로 */
     background-size: cover;
     opacity: 0.8;
     animation: fall linear infinite;
+    animation-duration: calc(8s + 4s * random()) !important; /* 8초에서 12초 사이의 랜덤 속도로 떨어짐 */
 }
 
 @keyframes fall {
