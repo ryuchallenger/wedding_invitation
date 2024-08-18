@@ -13,9 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.style.backgroundImage = `url('${randomBackground}')`;
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundPosition = 'center';
-
-    // 선택된 배경을 localStorage에 저장
-    localStorage.setItem('selectedBackground', randomBackground);
 });
 
 
@@ -28,18 +25,37 @@ let gameOver = false;
 let score = 0;
 let startTime = Date.now();
 
-gameContainer.addEventListener('mousemove', (event) => {
+function movePlayer(x, y) {
     if (gameOver) return;
 
     const rect = gameContainer.getBoundingClientRect();
-    const mouseX = event.clientX - rect.left;
-    const mouseY = event.clientY - rect.top;
+    const mouseX = x - rect.left;
+    const mouseY = y - rect.top;
 
     player.style.left = `${mouseX - player.clientWidth / 2}px`;
     player.style.top = `${mouseY - player.clientHeight / 2}px`;
+}
+
+gameContainer.addEventListener('mousemove', (event) => {
+    movePlayer(event.clientX, event.clientY);
+});
+
+gameContainer.addEventListener('touchmove', (event) => {
+    const touch = event.touches[0];
+    movePlayer(touch.clientX, touch.clientY);
 });
 
 gameContainer.addEventListener('click', () => {
+    if (gameOver) return;
+
+    fireMissile('up');
+    fireMissile('down');
+    fireMissile('left');
+    fireMissile('right');
+});
+
+gameContainer.addEventListener('touchstart', (event) => {
+    event.preventDefault(); // 터치 이벤트가 브라우저 기본 동작을 방해하지 않도록 설정
     if (gameOver) return;
 
     fireMissile('up');
@@ -198,6 +214,16 @@ function createObstacle() {
     moveObstacle();
 }
 
+// 장애물 여러 개 동시 생성
+function createMultipleObstacles(count) {
+    for (let i = 0; i < count; i++) {
+        createObstacle();
+    }
+}
+
+// 100ms마다 3개의 장애물을 생성
+setInterval(() => createMultipleObstacles(2), 100);
+
 function updateTime() {
     if (!gameOver) {
         const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
@@ -205,15 +231,5 @@ function updateTime() {
         requestAnimationFrame(updateTime);
     }
 }
-
-
-/* 장애물 여러개 동시 생성*/
-function createMultipleObstacles(count) {
-    for (let i = 0; i < count; i++) {
-        createObstacle();
-    }
-}
-
-setInterval(() => createMultipleObstacles(1), 100); // 예를 들어 3개의 장애물을 동시에 생성
 
 updateTime();
