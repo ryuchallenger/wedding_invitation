@@ -154,7 +154,7 @@ function createObstacle() {
     gameContainer.appendChild(obstacle);
 
     const angle = Math.atan2(targetY - startY, targetX - startX);
-    const speed = 10;
+    const speed = 5;
 
     function moveObstacle() {
         if (gameOver) return;
@@ -214,6 +214,6 @@ function createMultipleObstacles(count) {
     }
 }
 
-setInterval(() => createMultipleObstacles(2), 100); // 예를 들어 3개의 장애물을 동시에 생성
+setInterval(() => createMultipleObstacles(1), 100); // 예를 들어 3개의 장애물을 동시에 생성
 
 updateTime();
