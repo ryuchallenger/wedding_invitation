@@ -156,7 +156,7 @@ function createObstacle() {
     gameContainer.appendChild(obstacle);
 
     const angle = Math.atan2(targetY - startY, targetX - startX);
-    const speed = 15;
+    const speed = 3;
 
     function moveObstacle() {
         if (gameOver) return;
@@ -205,6 +205,13 @@ function updateTime() {
         const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
         timeElement.textContent = elapsedTime;
         requestAnimationFrame(updateTime);
+    }
+}
+
+// 장애물 여러 개 동시 생성
+function createMultipleObstacles(count) {
+    for (let i = 0; i < count; i++) {
+        createObstacle();
     }
 }
 

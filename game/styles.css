@@ -35,6 +35,19 @@ body#playerPage { /* playerPage id를 가진 body에만 스타일 적용 */
     font-family: 'Arial', sans-serif;
 }
 
+body#recordPage { /* startPage id를 가진 body에만 스타일 적용 */
+    background-size: cover; /* 이미지가 화면 전체를 덮도록 설정 */
+    background-position: center; /* 이미지가 화면 중앙에 위치하도록 설정 */
+    background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+}
 
 /* player.html */
 
@@ -105,8 +118,8 @@ body#playerPage { /* playerPage id를 가진 body에만 스타일 적용 */
 
 #player {
     position: absolute;
-    width: 70px;
-    height: 70px;
+    width: 5vw;
+    height: 5vw;
     border-radius: 50%;
     background-size: contain;
     background-image: url('miyun.jpg');
@@ -120,8 +133,8 @@ body#playerPage { /* playerPage id를 가진 body에만 스타일 적용 */
 
 .obstacle {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 3vw;
+    height: 3vw;
     background-size: contain;
     background-image: url('kyeongseon.jpg');
     background-color: yellow;
@@ -132,8 +145,8 @@ body#playerPage { /* playerPage id를 가진 body에만 스타일 적용 */
 
 .missile {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 1vw;
+    height: 1vw;
     background-size: contain;
     background-image: url('heart.png');
     background-position: center;
@@ -286,17 +299,17 @@ body#playerPage { /* playerPage id를 가진 body에만 스타일 적용 */
 /* 모바일 장치에 맞게 조정 */
 @media (max-width: 768px) {
     #player {
-        width: 30px;
-        height: 30px;
+        width: 6vw;
+        height: 6vw;
     }
 
     .obstacle {
-        width: 20px;
-        height: 20px;
+        width: 4vw;
+        height: 4vw;
     }
 
     .missile {
-        width: 5px;
-        height: 5px;
+        width: 2vw;
+        height: 2vw;
     }
 }
