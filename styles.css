@@ -269,7 +269,7 @@ body {
     color: black; /* 텍스트 색상 */
 }
 
-.location-icon, .weather-icon, .heart-icon, .invitation-icon {
+.location-icon, .weather-icon, .heart-icon, .invitation-icon, .game-icon {
     width: 30px;
     height: 30px;
     border: 2px solid black; /* 테두리 */

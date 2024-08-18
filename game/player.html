@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Player</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="playerPage">
+    <div id="playerSelectionScreen">
+        <h1>Select your player</h1>
+        <div class="player-option" id="miyunOption">
+            <img src="miyun.jpg" alt="Miyun">
+            <button>미연이: 강함</button>
+        </div>
+        <div class="player-option" id="kyeongseonOption">
+            <img src="kyeongseon.jpg" alt="Kyeongseon">
+            <button>경선이: 약함</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('miyunOption').addEventListener('click', function() {
+            window.location.href = 'index.html';  // Miyun 선택 시 index.html로 이동
+        });
+
+        document.getElementById('kyeongseonOption').addEventListener('click', function() {
+            window.location.href = 'kyeongseon.html';  // Kyeongseon 선택 시 kyeongseon.html로 이동
+        });
+    </script>
+</body>
+</html>
