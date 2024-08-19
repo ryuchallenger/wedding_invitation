@@ -133,8 +133,8 @@ body#recordPage { /* startPage id를 가진 body에만 스타일 적용 */
 
 .obstacle {
     position: absolute;
-    width: 3vw;
-    height: 3vw;
+    width: 2vw;
+    height: 2vw;
     background-size: contain;
     background-image: url('kyeongseon.jpg');
     background-color: yellow;
@@ -298,6 +298,10 @@ body#recordPage { /* startPage id를 가진 body에만 스타일 적용 */
 
 /* 모바일 장치에 맞게 조정 */
 @media (max-width: 768px) {
+    #gameContainer {
+        background-size: contain; /* 모바일에서 배경 이미지가 잘리지 않도록 조정 */
+    }
+
     #player {
         width: 6vw;
         height: 6vw;
