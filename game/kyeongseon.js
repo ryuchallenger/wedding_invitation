@@ -156,7 +156,7 @@ function createObstacle() {
     gameContainer.appendChild(obstacle);
 
     const angle = Math.atan2(targetY - startY, targetX - startX);
-    const speed = 3;
+    const speed = 5;
 
     function moveObstacle() {
         if (gameOver) return;
