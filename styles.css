@@ -113,9 +113,6 @@ body {
     padding-bottom: 10px;
 }
 
-.container {
-}
-
 .content {
     margin: 40px 0;
 }
@@ -269,7 +266,7 @@ body {
     color: black; /* 텍스트 색상 */
 }
 
-.location-icon, .weather-icon, .heart-icon, .invitation-icon, .game-icon {
+.location-icon, .weather-icon, .heart-icon, .invitation-icon, .game-icon, .photoalbum-icon {
     width: 30px;
     height: 30px;
     border: 2px solid black; /* 테두리 */
@@ -287,6 +284,15 @@ body {
 }
 
 .invitation-icon {
+    width: 30px !important;
+    height: 30px !important;
+    cursor: pointer; /* 클릭 가능하게 포인터 커서 추가 */
+    margin-bottom: 4px !important;; /* 아이콘과 텍스트 사이의 간격 조정 */
+    z-index: 10; /* 다른 요소들보다 위에 위치하도록 z-index 설정 */
+    position: relative; /* 위치를 고정 */
+}
+
+.photoalbum-icon {
     width: 30px !important;
     height: 30px !important;
     cursor: pointer; /* 클릭 가능하게 포인터 커서 추가 */

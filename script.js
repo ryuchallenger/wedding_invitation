@@ -24,10 +24,21 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.error('Invitation icon not found');
     }
+    
+    // Photoalbum icon 클릭 시 "결혼식사진" 페이지 열기
+    const PhotoalbumIcon = document.querySelector('.photoalbum-icon');
+    if (PhotoalbumIcon) {
+        PhotoalbumIcon.addEventListener('click', function() {
+            window.location.href = 'photoalbum.html';
+        });
+    } else {
+        console.error('Photoalbum icon not found');
+    }
 });
 
     // 꽃잎 애니메이션 생성
     generatePetals(20); // 생성할 꽃잎 수
+
 
 
 function updateCountdown(weddingDate) {
@@ -62,4 +73,18 @@ function generatePetals(num) {
         petal.style.animationDelay = `${Math.random() * 5}s`;
         petalContainer.appendChild(petal);
     }
+}
+
+// 이미지 폴더와 파일 이름을 자동으로 로드
+const gallery = document.getElementById("gallery");
+const imageFolder = "photoalbum"; // 이미지 폴더 경로
+const imageCount = 2; // 폴더 안의 이미지 파일 수
+const imageExtension = "JPG"; // 이미지 확장자 (예: jpg, png 등)
+
+// 이미지 로드 및 추가
+for (let i = 1; i <= imageCount; i++) {
+    const img = document.createElement("img");
+    img.src = `${imageFolder}/photo${i}.${imageExtension}`;
+    img.alt = `Photo ${i}`;
+    gallery.appendChild(img);
 }
