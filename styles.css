@@ -246,9 +246,10 @@ body {
 
 /* 아이콘 컨테이너 */
 .icon-container {
-    display: flex;
-    justify-content: center; /* 아이콘을 중앙에 배치 */
-    gap: 2px; /* 아이콘 간의 간격 설정 */
+    display: grid; /* 그리드 레이아웃 사용 */
+    grid-template-columns: repeat(4, 1fr); /* 4개의 열로 설정 */
+    gap: 10px; /* 아이콘 간의 간격 */
+    justify-content: center; /* 컨테이너 내부 중앙 정렬 */
     margin-top: 10px;
 }
 
